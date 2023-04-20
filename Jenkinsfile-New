@@ -39,6 +39,6 @@ node(){
 		     subject: "Job Completed",
 		     body: "Jenkins pipeline job for maven build got completed successfully. ",
 		     to: "arunkmr.nk@gmail.com"
-	}
+	)
 	
 }
