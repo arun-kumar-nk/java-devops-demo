@@ -22,6 +22,7 @@ node(){
 	}
 	*/
 	stage('Code Deployment'){
-		deploy adapters: [tomcat9(credentialsId: 'TomcatCreds', path: '', url: 'http://54.197.62.94:8080/')], contextPath: 'Planview', onFailure: false, war: 'target/*.war'
+		//deploy adapters: [tomcat9(credentialsId: 'TomcatCreds', path: '', url: 'http://54.197.62.94:8080/')], contextPath: 'Planview', onFailure: false, war: 'target/*.war'
+		deploy adapters: [tomcat8(credentialsId: 'TomcatCreds', path: '', url: 'http://13.233.236.88:8090/')], contextPath: 'Planview', onFailure: false, war: 'target/*.war'
 	}
 }
