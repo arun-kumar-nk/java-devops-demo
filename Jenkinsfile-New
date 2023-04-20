@@ -1,1 +1,35 @@
 
+node(main){
+
+	//def sonarHome = tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+	
+	stage('Code Checkout'){
+		checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'GitHubCreds', url: 'https://github.com/anujdevopslearn/MavenBuild']])
+	}
+	
+  stage('Build'){
+		sh "mvn clean install -Dmaven.test.skip=true"
+	}
+  
+  stage('Test Case Execution'){
+		sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test"
+	}
+  
+  stage('Archive Artifacts'){
+		 archiveArtifacts artifacts: 'target/*,war'
+	}
+	
+  /*
+	stage('Code Scan'){
+		withSonarQubeEnv(credentialsId: 'SonarQubeCreds') {
+			sh "${sonarHome}/bin/sonar-scanner"
+		}
+		
+	}
+	*/
+	stage('Code Deployment'){
+		//deploy adapters: [tomcat9(credentialsId: 'TomcatCreds', path: '', url: 'http://54.197.62.94:8080/')], contextPath: 'Planview', onFailure: false, war: 'target/*.war'
+		//deploy adapters: [tomcat8(credentialsId: 'TomcatCreds', path: '', url: 'http://13.232.47.82:8090/')], contextPath: 'java-example', onFailure: false, war: 'target/*.war'
+		sh "sudo cp /var/lib/jenkins/workspace/demo-pipeline/target/java-example.war /opt/apache-tomcat-8.5.35/webapps"
+	}
+}
