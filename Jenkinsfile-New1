@@ -13,9 +13,9 @@ node(){
 	}
   
   stage('Test Case Execution'){
-		{
+		
           sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test"
-                }
+               
         post {
              always{
                  junit '**/target/surefire-reports/TEST-*.xml'
