@@ -22,9 +22,10 @@ node(){
 	
   /*
 	stage('Code Scan'){
-		withSonarQubeEnv(credentialsId: 'SonarQubeCreds') {
-			sh "${sonarHome}/bin/sonar-scanner"
-		}
+	//	withSonarQubeEnv(credentialsId: 'SonarQubeCreds') {
+	//		sh "${sonarHome}/bin/sonar-scanner"
+	//	}
+	sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=arun-kumar-nk_java-devops-demo"
 		
 	}
 	*/
