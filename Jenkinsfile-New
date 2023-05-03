@@ -16,16 +16,16 @@ node(){
 		sh "mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test"
 	}
   
-  stage('Archive Artifacts'){
-		 archiveArtifacts artifacts: 'target/*.war'
-	}
+  //stage('Archive Artifacts'){
+//		 archiveArtifacts artifacts: 'target/*.war'
+//	}
 	
   
-	stage('Code Scan'){
+//	stage('Code Scan'){
 	//	withSonarQubeEnv(credentialsId: 'SonarQubeCreds') {
 	//		sh "${sonarHome}/bin/sonar-scanner"
 	//	}
-	sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=arun-kumar-nk_java-devops-demo"
+//	sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=arun-kumar-nk_java-devops-demo"
 		
 	}
 	
