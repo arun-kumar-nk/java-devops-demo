@@ -28,9 +28,9 @@ node(){
 	//sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=arun-kumar-nk_java-devops-demo"
 	
 	mvn clean verify sonar:sonar \
-         -Dsonar.login=a194f4ffd28444e739a0eef78bd40f32a02de8a4 \
+         -Dsonar.login="a194f4ffd28444e739a0eef78bd40f32a02de8a4" \
          -Dsonar.host.url="https://sonarcloud.io" \
-         -Dsonar.projectKey=arun-kumar-nk_java-devops-demo
+         -Dsonar.projectKey="arun-kumar-nk_java-devops-demo"
 
 		
 	}
