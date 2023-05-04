@@ -49,6 +49,7 @@ stage('Code Coverage'){
 		sh "sudo cp /var/lib/jenkins/workspace/sonar-pipeline/target/java-example.war /opt/apache-tomcat-8.5.35/webapps"
 	}
 	
+	/*
 	stage('Notification'){
 	        emailext (
 		     subject: "Job Completed",
@@ -56,5 +57,5 @@ stage('Code Coverage'){
 		     to: "arunkmr.nk@gmail.com"
 	       )
 	}
-	
+	*/	
 }
